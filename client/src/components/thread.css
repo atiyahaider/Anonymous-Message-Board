@@ -1,0 +1,59 @@
+#threadForm {
+  margin: auto;
+  margin-top: 5px;
+  background: white;
+  width: 50%;
+  padding: 20px 20px;
+}
+
+.subHeading {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+span{
+  float: right;
+  font-size: 0.55em;
+  font-weight: normal;
+}
+
+.input-field {
+  display: grid;
+  grid-template-rows: 23px auto;
+  margin-bottom: 15px;
+}
+
+label {
+  text-align: left;
+  font-size: 0.95em;
+  color: var(--red);
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid var(--red);
+  height: 20px;
+  font-size: 0.8em;
+  padding-bottom: 3px;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 1px solid var(--darkGray);
+}
+
+textarea {
+  border: 1px solid var(--red);
+  height: 70px;
+  font-size: 0.9em;
+  font-family: 'Arial';
+}
+
+textarea:focus {
+  outline: none;
+  border: 1px solid var(--darkGray);
+}
+
+#btnSection {
+  text-align: center;  
+}
