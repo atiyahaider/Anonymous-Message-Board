@@ -75,15 +75,15 @@ class Boards extends Component {
                     <th className="tableHeader" style={{textAlign: 'left', width: '50%'}}>Boards</th>
                     <th className="tableHeader">Threads</th>
                     <th className="tableHeader">Replies</th>
-                    <th className="tableHeader">Last Bumped</th>
+                    <th className="tableHeader" style={{textAlign: 'left'}}>Last Bumped</th>
                   </tr>
                 </thead>
                 <tbody>
                   { boards.map( board => (
                         <tr key={board._id} board={board._id} onClick={this.handleRowClick}>
-                          <td className="listCell" style={{textAlign: 'left', width: '50%'}}>{board._id}</td>
-                          <td className="listCell">{board.threads}</td>
-                          <td className="listCell">{board.replies}</td>
+                          <td className="listCell" style={{width: '50%'}}>{board._id}</td>
+                          <td className="listCell" style={{textAlign: 'center'}}>{board.threads}</td>
+                          <td className="listCell" style={{textAlign: 'center'}}>{board.replies}</td>
                           <td className="listCell">{(new Date(board.bumped_on)).toLocaleString("en-US")}</td>
                         </tr>
                         ))
