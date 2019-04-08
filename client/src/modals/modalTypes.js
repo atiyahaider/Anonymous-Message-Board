@@ -1,0 +1,2 @@
+export const ALERT_MODAL = 'ALERT_MODAL';
+export const CONFIRM_MODAL = 'CONFIRM_MODAL';

@@ -1,8 +1,10 @@
 :root {
-  --darkGray: #585858;
-  --gray: #484848;
+  --gray: #585858;
+  --darkGray: #484848;
   --maroon: #190000;
   --red: #990000;
+  --darkRed: #660000;
+  --medRed: #bb0000;
 }
 
 * {
@@ -12,18 +14,21 @@
 }
 
 html {
-  height: 100%;
+  background-color: black;
+  background-image: linear-gradient(var(--gray), black);
+  background-attachment: fixed;
+  height: 100%;  
 }
+
 body {
   font-family: 'Arial';
   height: 100%;
 }
 
 #container{
-  background-color: black;
-  background-image: linear-gradient(var(--darkGray), black);
-  background-size: cover;
-  height: 100vh;
+  min-height: 100%;
+  padding-bottom: 30px;
+  /*position: relative;*/
 }
 
 /* side line 1*/
@@ -59,10 +64,10 @@ body {
 .button {
   padding: 5px;
   margin: 15px 15px 5px;
-  width: 100px;
+  min-width: 100px;
   border: 1px solid gray;
   border-radius: 3px;
-  box-shadow: 2px 2px 8px var(--gray);
+  box-shadow: 2px 2px 8px var(--darkGray);
 }
 
 .button:hover{

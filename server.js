@@ -21,40 +21,27 @@ app.use( helmet( {
         } ) 
        );
 
-//app.use('/public', express.static(process.cwd() + '/client/public'));
-app.use(express.static(process.cwd() + '/client/public'));
-
 app.use(cors({origin: '*'})); //For FCC testing purposes only
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//Sample front-end
-app.route('/b/:board/')
-  .get(function (req, res) {
-    res.sendFile(process.cwd() + '/views/board.html');
-  });
-app.route('/b/:board/:threadid')
-  .get(function (req, res) {
-    res.sendFile(process.cwd() + '/views/thread.html');
-  });
+//Routing for API 
+app.use('/api', apiRoutes);
+    
+//Set static folder
+app.use(express.static(process.cwd() + '/client/public'));
 
 //Index page (static HTML)
-app.route('/')
+app.route('/*')
   .get(function (req, res) {
     res.sendFile(process.cwd()  + '/client/public/index.html');
   });
 
 //For FCC testing purposes
 fccTestingRoutes(app);
-
-//Routing for API 
-app.use('/api', apiRoutes);
-    
-//Sample Front-end
-
-    
-//404 Not Found Middleware
+  
+//404 Middleware Not found
 app.use(function(req, res, next) {
   return next({status: 404, message: 'Path Not Found'})
 });

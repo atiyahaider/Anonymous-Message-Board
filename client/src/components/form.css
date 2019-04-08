@@ -1,4 +1,4 @@
-#threadForm {
+#inputForm {
   margin: auto;
   margin-top: 5px;
   background: white;
@@ -11,16 +11,28 @@
   margin-bottom: 15px;
 }
 
-span{
+#apiLink {
   float: right;
   font-size: 0.55em;
   font-weight: normal;
 }
 
+.fixed-field {
+  display: grid;
+  grid-template-rows: 23px auto;
+  margin-bottom: 3px;
+}
+
+.fixedInfo {
+  font-size: 0.95em;
+  font-weight: bold;
+  color: black;
+}
+
 .input-field {
   display: grid;
   grid-template-rows: 23px auto;
-  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 label {
@@ -47,6 +59,7 @@ textarea {
   height: 70px;
   font-size: 0.9em;
   font-family: 'Arial';
+  padding: 3px;
 }
 
 textarea:focus {

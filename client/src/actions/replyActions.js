@@ -1,23 +1,23 @@
-import { THREAD_LOADING, ADD_THREAD, EDIT_THREAD, THREAD_ERROR } from './actionTypes';
+import { REPLY_LOADING, ADD_REPLY, EDIT_REPLY, REPLY_ERROR } from '../actions/actionTypes';
 import handleHTTPErrors from './errorHandler';
 
-export const setThreadLoading = () => {
+export const setReplyLoading = () => {
   return {
-    type: THREAD_LOADING
+    type: REPLY_LOADING
   }
 };
 
-export const addThread = (thread) => dispatch => {
-  dispatch(setThreadLoading());
-  
+export const addReply = (reply) => dispatch => {
+  dispatch(setReplyLoading());
+
   //make async call
-  return fetch('/api/threads/' + thread.board, {
+  return fetch('/api/replies/' + reply.board, {
               method: 'post',
               headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
               },
-              body: JSON.stringify(thread)
+              body: JSON.stringify(reply)
 
           })
             .then(handleErrors,  //http & validation errors
@@ -28,29 +28,29 @@ export const addThread = (thread) => dispatch => {
               return results.json();
             }).then(data => {
                     dispatch ({
-                      type: ADD_THREAD,
+                      type: ADD_REPLY,
                       payload: data
                     })
               })
               .catch(err => {
                   dispatch ({
-                    type: THREAD_ERROR,
+                    type: REPLY_ERROR,
                     err: err.message
                   })
               })
 };
 
-export const editThread = (thread) => dispatch => {
-  dispatch(setThreadLoading());
+export const editReply = (reply) => dispatch => {
+  dispatch(setReplyLoading());
 
   //make async call
-  return fetch('/api/threads/edit/' + thread.board, {
+  return fetch('/api/replies/edit/' + reply.board, {
               method: 'put',
               headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
               },
-              body: JSON.stringify(thread)
+              body: JSON.stringify(reply)
 
           })
             .then(handleErrors,  //http & validation errors
@@ -61,13 +61,13 @@ export const editThread = (thread) => dispatch => {
               return results.json();
             }).then(data => {
                     dispatch ({
-                      type: EDIT_THREAD,
+                      type: EDIT_REPLY,
                       payload: data
                     })
               })
               .catch(err => {
                   dispatch ({
-                    type: THREAD_ERROR,
+                    type: REPLY_ERROR,
                     err: err.message
                   })
               })

@@ -4,8 +4,7 @@
   bottom: 0;
   width: 100%;
   height: 55px;
-  text-align: center;
-  background-image: linear-gradient(var(--gray), var(--maroon));
+  background-image: linear-gradient(var(--darkGray), var(--maroon));
   transform: skewY(1.5deg);
   transform-origin: bottom left;
 }

@@ -1,0 +1,35 @@
+#pagination {
+  margin: auto;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  align-content: space-between;
+}
+
+.pageDiv {
+  padding: 0 5px;
+  margin: 0 20px;
+  font-size: 1.1em;
+}
+
+#limitLabel {
+  color: var(--medRed);
+}
+
+#limit {
+  width: 50px;
+  height: 18px;
+  padding: 2px;
+}
+
+#pageNumber {
+  color: var(--medRed);
+}
+
+.pageButton {
+  background-color: var(--gray);
+  border: none;
+  margin: 0 5px;
+  padding: 5px;
+  color: white;
+}

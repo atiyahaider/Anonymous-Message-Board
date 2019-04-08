@@ -1,0 +1,2 @@
+export const THREAD_DELETE = 'THREAD_DELETE';
+export const REPLY_DELETE = 'REPLY_DELETE';
