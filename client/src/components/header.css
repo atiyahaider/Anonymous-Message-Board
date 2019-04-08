@@ -17,8 +17,24 @@
 
 .homeLink {
   position: absolute;
-  top: 20px;
+  top: 90px;
   right: 50px;
   transform: skewY(2.75deg);
+}
+
+.navLink:link {
   color: white;
+  font-size: 1.15em;
+}
+
+.navLink:visited {
+  color: white;
+}
+
+.navLink:hover {
+  color: var(--darkGray);
+}
+
+.navLink:active {
+  color: black;
 }

@@ -1,33 +1,37 @@
-import { ERROR, GET_BOARDS, ADD_BOARD, BOARDS_LOADING } from '../actions/actionTypes';
+import { BOARDS_LOADING, GET_BOARDS, BOARDS_ERROR } from '../actions/actionTypes';
 
 const initialState = {
   boards: [],
   loading: false,
-  err: ''
+  err: null
 }
 
 export default function(state = initialState, action) {
+
   switch(action.type) {
+  
+    case BOARDS_LOADING:
+      return {
+        ...state,
+        loading: true,
+        err: null
+      }
+    
     case GET_BOARDS:
       return {
         ...state,
         boards: action.payload,
-        loading: false
+        loading: false,
+        err: null
       }
-    case ADD_BOARD:
-      return {
-        ...state
-      }
-    case BOARDS_LOADING:
+      
+    case BOARDS_ERROR:
       return {
         ...state,
-        loading: true
-      }
-    case ERROR:
-      return {
-        ...state,
+        loading: false,
         err: action.err
       }
+
     default:
       return state;
   }

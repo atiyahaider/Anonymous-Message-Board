@@ -1,4 +1,4 @@
-import { THREAD_LOADING, ADD_THREAD, EDIT_THREAD, THREAD_ERROR } from '../actions/actionTypes';
+import { REPLY_LOADING, ADD_REPLY, EDIT_REPLY, REPLY_ERROR } from '../actions/actionTypes';
 
 const initialState = {
   loading: false,
@@ -10,23 +10,23 @@ export default function(state = initialState, action) {
   
   switch(action.type) {
     
-    case THREAD_LOADING:
+    case REPLY_LOADING:
       return {
         ...state,
         loading: true,
         err: null
       }
       
-    case ADD_THREAD:
-    case EDIT_THREAD:
+    case ADD_REPLY:
+    case EDIT_REPLY:
       return {
         ...state,
         loading: false,
         data: action.payload,
         err: null
         }
-
-    case THREAD_ERROR:
+    
+    case REPLY_ERROR:
       return {
         ...state,
         loading: false,

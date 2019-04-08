@@ -1,0 +1,66 @@
+#tableWrapper {
+  padding: 8px;
+  margin: auto;
+  width: 60%;
+  background: white;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.notExists {
+  color: white;
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+.list {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tableHeader {
+  font-size: 20px;
+  font-weight: normal;
+  padding: 8px;
+  background-color: gray;
+  border-bottom: 1px solid var(--red);
+}
+
+.listCell {
+  border: 1px solid var(--red);
+  padding: 6px;
+  font-size: 17px;
+  text-align: left;
+}
+
+.threadHeader {
+  margin: auto;
+  width: 60%;
+  text-align: left;
+  color: var(--medRed);
+  font-size: 1.025em;
+  border: 2px solid white;
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+.threadHeader p {
+  padding-bottom: 8px;
+}
+
+hr {
+  margin-bottom: 8px;
+  border-top: 1px solid white;
+}
+
+.icon {
+  color: gray;
+}
+
+.icon:hover {
+    color: var(--darkRed);
+}
+
+.reported {
+  color: red;
+}

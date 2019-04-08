@@ -1,10 +1,36 @@
 module.exports = {
+    limit: () => {
+        return (req, res, next) => {
+          let { limit } = req.query;
+          if (limit !== undefined && isNaN(parseFloat(limit * 1)))
+              return res.status(400).json({error: 'Limit should be a valid number'});
+          if (limit !== undefined && limit < 1)
+              return res.status(400).json({error: 'Limit should be greater than 0'});
+          //if no error
+          next();
+        }
+    },
+
+    offset: () => {
+        return (req, res, next) => {
+          let { offset } = req.query;
+          if (offset !== undefined) {
+            if (isNaN(parseFloat(offset * 1)))
+              return res.status(400).json({error: 'Offset should be a valid number'});
+            if (offset < 0)
+              return res.status(400).json({error: 'Offset should be greater than or equal to 0'});
+          }
+          //if no error
+          next();
+        }
+    },
+  
     board: () => {
         return (req, res, next) => {
-          if(req.body.board === undefined)
+          if(req.params.board === undefined) 
             return res.status(400).json({error: 'Board is required'});
-
-          if(req.body.board.trim() === '')
+                                      
+          if(req.params.board.trim() === '')
             return res.status(400).json({error: 'Board is required'});
           //if no error
           next();
@@ -49,12 +75,16 @@ module.exports = {
 
     thread_id: () => {
         return (req, res, next) => {
-            let id = req.body.thread_id;
+            let id;
+            if (req.method === 'POST' || req.method === 'PUT' || req.method === 'DELETE') //coming from form
+                id  = req.body.thread_id;
+            else       //coming from URL
+                id = req.query.thread_id;
 
             if (id === undefined) // No Id
-                return res.status(400).json({error: 'Id missing'});  
+                return res.status(400).json({error: 'Thread Id missing'});  
             if (!id.match(/^[0-9a-fA-F]{24}$/))  // Not a valid ObjectId
-                return res.status(400).json({error: 'Not a valid Id'});  
+                return res.status(400).json({error: 'Not a valid Thread Id'});  
             else    
                 next();
         }
@@ -65,20 +95,11 @@ module.exports = {
             let id = req.body.reply_id;
 
             if (id === undefined) // No Id
-                return res.status(400).json({error: 'Id missing'});  
+                return res.status(400).json({error: 'Reply Id missing'});  
             if (!id.match(/^[0-9a-fA-F]{24}$/))  // Not a valid ObjectId
-                return res.status(400).json({error: 'Not a valid Id'});  
+                return res.status(400).json({error: 'Not a valid Reply Id'});  
             else    
                 next();
         }
-    },
-
-    comment: () => {
-        return (req, res, next) => {
-          if(req.body.comment !== undefined && req.body.comment.trim() === '')
-            return res.status(400).json({error: 'Comment cannot be empty'});
-          //if no error
-          next();
-        }
-    },
+    }
 }

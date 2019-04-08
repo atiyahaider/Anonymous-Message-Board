@@ -1,8 +1,18 @@
 import { combineReducers } from 'redux';
-import boardReducer from './boardReducer';
+import modalReducer from './modalReducer';
+import paginationReducer from './paginationReducer';
+import boardListReducer from './boardListReducer';
 import threadReducer from './threadReducer';
+import threadListReducer from './threadListReducer';
+import replyListReducer from './replyListReducer';
+import replyReducer from './replyReducer';
 
 export default combineReducers({
-    board: boardReducer,
-    thread: threadReducer
+    modal: modalReducer,
+    pagination: paginationReducer,
+    boardList: boardListReducer,
+    thread: threadReducer,
+    threadList: threadListReducer,
+    replyList: replyListReducer,
+    reply: replyReducer
 });

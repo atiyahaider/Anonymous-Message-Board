@@ -1,0 +1,73 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.modal-box {
+  position:fixed;
+  background: var(--red);
+  width: 40%;
+  height: auto;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+#modalBoxHeader {
+  background:  var(--gray);
+  margin: 2px;
+  text-align: left;
+  padding: 8px 8px;
+  font-weight: bold;
+}
+
+#modalBoxBody {
+  background: var(--darkRed);
+  padding: 15px 10px;
+  color: white;
+  margin: 2px 2px;
+  word-wrap: break-word;
+  font-size: 0.95em;
+  text-align: left;
+}
+
+#modalBoxFooter {
+  background: var(--gray);
+  margin: 2px;
+  text-align: right;
+  padding: 6px 8px;
+}
+
+.modalButton {
+  padding: 3px 5px;
+  width: 60px;
+  border: 1px solid gray;
+  border-radius: 2px;
+  color: black;
+  box-shadow: 1px 1px 4px black;
+}
+
+.modalButton:hover{
+  color: white;
+  background-color: var(--red);
+  box-shadow: 1px 1px 2px white;
+}  
+
+#deleteForm input {
+  background-color: var(--darkRed);
+  border: none;
+  border-bottom: 1px solid var(--red);
+  height: 20px;
+  font-size: 0.9em;
+  padding-bottom: 3px;
+}
+
+#deleteForm input:focus {
+  outline: none;
+  border-bottom: 1px solid white;
+  color: white;
+}
