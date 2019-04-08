@@ -94,6 +94,7 @@ class Thread extends Component {
               <h2>{this.state.edit ? 'Update ' : 'New ' }Thread
                 {!this.state.edit && <span id="apiLink">(POST /api/threads/:board)</span> }
               </h2>
+              <hr style={{marginTop: '8px', borderTop: '1px solid gray'}}/>
             </div>
             <input type="hidden" id="newBoard" value={this.state.newBoard} />
             <div className="fixed-field">

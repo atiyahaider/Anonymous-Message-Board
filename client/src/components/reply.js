@@ -85,6 +85,7 @@ class Reply extends Component {
               <h2>{this.state.edit ? 'Update ' : 'New ' }Reply
                 {!this.state.edit && <span id="apiLink">(POST /api/replies/:board)</span> }
               </h2>
+              <hr style={{marginTop: '8px', borderTop: '1px solid gray'}}/>
             </div>
             <div className="fixed-field">
               <label htmlFor="board">Board: <span className="fixedInfo">{this.state.board}</span></label>

@@ -23,11 +23,13 @@
   font-weight: normal;
   padding: 8px;
   background-color: gray;
-  border-bottom: 1px solid var(--red);
+  border-bottom: 3px solid var(--darkRed);
+  border-top: 2px solid var(--darkRed);
 }
 
 .listCell {
-  border: 1px solid var(--red);
+  border-bottom: 1px solid var(--red);
+  border-top: 1px solid var(--red);
   padding: 6px;
   font-size: 17px;
   text-align: left;
