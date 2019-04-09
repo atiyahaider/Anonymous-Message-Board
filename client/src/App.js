@@ -19,7 +19,7 @@ export default () => {
           <Header />
           <Switch>
             <Route path="/" exact component={Boards} />
-            <Route path="/boards" exact component={Boards} />
+            <Route path="/boards" component={Boards} />
             <Route path="/newboard" exact component={Thread} />
             <Route path="/threads/:board" component={ThreadList} />
             <Route path="/newthread/:board" component={Thread} />

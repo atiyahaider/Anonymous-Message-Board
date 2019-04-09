@@ -25,6 +25,7 @@ class ThreadList extends Component {
   }
   
   componentDidMount() {
+    console.log(this.props)
     this.props.getThreadList(this.props.match)
   }
 
@@ -80,53 +81,57 @@ class ThreadList extends Component {
     if (err) 
       return null;
     
-    if (threads.length === 0) {
-      return (
-        <div>
-          <section id="content">
-            <p className="notExists">No Threads exist yet. Please create a New Thread.</p><br />
-            <button className="button" onClick={this.handleNewThreadClick}>New Thread</button>
-          </section>
-        </div>
-      );
-    }
-    
     else {
       return (
         <div>
-          <Pagination listName="Threads" listType={THREADS_LIST}/>
           <section id="content">
             <div className="threadHeader">
-              <p>Board: <span style={{color: 'white'}}>{this.props.match.params.board}</span></p>      
-              <p>Last Bumped: <span style={{color: 'white'}}>{(new Date(threads[0].bumped_on)).toLocaleString("en-US")}</span></p>
+              <p>Board: <span style={{color: 'white'}}>{this.props.match.params.board}</span></p>   
+              { threads.length !== 0 &&
+                <p>Last Bumped: <span style={{color: 'white'}}>{(new Date(threads[0].bumped_on)).toLocaleString("en-US")}</span></p>
+              }
             </div>
-            <div id="tableWrapper">
-              <table className="list">
-                <tbody>
-                  { threads.map( thread => (
-                        <tr key={thread._id}>
-                          <td className="listCell" threadid={thread._id} onClick={this.handleRowClick}>
-                            <span style={{fontSize: '0.7em', color: 'gray'}}>{thread._id}</span>
-                            <span style={{float: 'right', fontSize: '0.7em', color: 'gray'}}>{(new Date(thread.bumped_on)).toLocaleString("en-US")}</span><br />
-                            <span style={{fontSize: '0.9em'}}><strong>{thread.title}</strong></span><br />
-                            <span style={{fontSize: '0.8em'}}>{thread.text}</span><br />
-                            <span style={{fontSize: '0.7em', color: 'gray'}}>
-                              <i className="fas fa-comment-dots"></i>&nbsp;{thread.reply_count} replies
-                            </span>
-                          </td>
-                          <td className="listCell" style={{textAlign: 'center'}}>
-                            {!thread.reported &&
-                               <span><i className="fas fa-edit icon" onClick={this.editThread} id={thread._id} title="Edit Thread"></i><br /></span>
-                            }
-                            <i className={"fas fa-flag icon " + (thread.reported ? 'reported' : '')} onClick={this.reportThread} id={thread._id} title="Report Thread"></i><br />
-                            <i className="fas fa-trash-alt icon" onClick={this.deleteThread} id={thread._id} title="Delete Thread"></i>
-                          </td>
-                        </tr>
-                    ))
-                  }
-                </tbody>
-              </table>
-            </div>
+
+            { threads.length === 0 ? (
+                <div>
+                  <section id="content">
+                    <p className="notExists">No Threads exist. Please create a New Thread.</p><br />
+                    <p style={{color: "red"}}>Warning: If new threads are not created, this board will be deleted.</p>
+                  </section>
+                </div>
+              ) :
+            (
+              <div>
+                  <Pagination listName="Threads" listType={THREADS_LIST}/>
+                  <div id="tableWrapper">
+                      <table className="list">
+                        <tbody>
+                          { threads.map( thread => (
+                                <tr key={thread._id} className="rowClick">
+                                  <td className="listCell" threadid={thread._id} onClick={this.handleRowClick}>
+                                    <span style={{fontSize: '0.7em', color: 'gray'}}>{thread._id}</span>
+                                    <span style={{float: 'right', fontSize: '0.7em', color: 'gray'}}>{(new Date(thread.bumped_on)).toLocaleString("en-US")}</span><br />
+                                    <span style={{fontSize: '0.9em'}}><strong>{thread.title}</strong></span><br />
+                                    <span style={{fontSize: '0.8em'}}>{thread.text}</span><br />
+                                    <span style={{fontSize: '0.7em', color: 'gray'}}>
+                                      <i className="fas fa-comment-dots"></i>&nbsp;{thread.reply_count} replies
+                                    </span>
+                                  </td>
+                                  <td className="listCell" style={{textAlign: 'center'}}>
+                                    {!thread.reported &&
+                                       <span><i className="fas fa-edit icon" onClick={this.editThread} id={thread._id} title="Edit Thread"></i><br /></span>
+                                    }
+                                    <i className={"fas fa-flag icon " + (thread.reported ? 'reported' : '')} onClick={this.reportThread} id={thread._id} title="Report Thread"></i><br />
+                                    <i className="fas fa-trash-alt icon" onClick={this.deleteThread} id={thread._id} title="Delete Thread"></i>
+                                  </td>
+                                </tr>
+                            ))
+                          }
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
             <button className="button" onClick={this.goBack}>&lt;&lt; Back</button>
             <button className="button" onClick={this.handleNewThreadClick}>New Thread</button>
           </section>

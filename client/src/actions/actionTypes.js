@@ -10,6 +10,7 @@ export const SET_PATHNAME = 'SET_PATHNAME';
 export const SET_OFFSET = 'SET_OFFSET';
 export const SET_TOTAL = 'SET_TOTAL';
 export const SET_LIMIT = 'SET_LIMIT';
+export const SET_SEARCH = 'SET_SEARCH';
 
 //BoardList
 export const BOARDS_LOADING = 'BOARDS_LOADING';

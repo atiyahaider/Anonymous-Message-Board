@@ -1,11 +1,14 @@
-import { SET_PATHNAME, SET_OFFSET, SET_TOTAL, SET_LIMIT } from '../actions/actionTypes';
+import { SET_PATHNAME, SET_OFFSET, SET_TOTAL, SET_LIMIT, SET_SEARCH } from '../actions/actionTypes';
 import { BOARDS_LIST, THREADS_LIST, REPLIES_LIST } from './listTypes';
 import { DEFAULT_LIMIT, DEFAULT_REPLIES_LIMIT } from './config.js';
 
 const initialState = {
   boards: {
     pathname: {
-      path: ''
+      path: '',
+      params: {
+        search: ''
+      }
     },
     offset: 0,
     total: 0,
@@ -44,12 +47,13 @@ export default function(state = initialState, action) {
     
     case SET_PATHNAME:
       switch(action.listType) {
-        case (BOARDS_LIST): 
+        case BOARDS_LIST: 
           return {
             ...state,
             boards: {
               ...state.boards,
               pathname: {
+                ...state.boards.pathname,
                 path: action.pathname.path,
               },
               offset: 0,
@@ -58,7 +62,7 @@ export default function(state = initialState, action) {
             }
           }      
         
-        case (THREADS_LIST):
+        case THREADS_LIST:
           return {
             ...state,
             threads: {
@@ -75,7 +79,7 @@ export default function(state = initialState, action) {
             }
           }      
 
-        case (REPLIES_LIST):
+        case REPLIES_LIST:
           return {
             ...state,
             replies: {
@@ -99,7 +103,7 @@ export default function(state = initialState, action) {
       
     case SET_OFFSET:
       switch(action.listType) {
-        case (BOARDS_LIST): 
+        case BOARDS_LIST: 
           return {
             ...state,
             boards: {
@@ -108,7 +112,7 @@ export default function(state = initialState, action) {
             }
           }      
 
-        case (THREADS_LIST):
+        case THREADS_LIST:
           return {
             ...state,
             threads: {
@@ -117,7 +121,7 @@ export default function(state = initialState, action) {
             }
           }      
         
-        case (REPLIES_LIST):
+        case REPLIES_LIST:
           return {
             ...state,
             replies: {
@@ -132,7 +136,7 @@ export default function(state = initialState, action) {
       
     case SET_TOTAL:
       switch(action.listType) {
-        case (BOARDS_LIST): 
+        case BOARDS_LIST: 
           return {
             ...state,
             boards: {
@@ -141,7 +145,7 @@ export default function(state = initialState, action) {
             }
           } 
           
-        case (THREADS_LIST):
+        case THREADS_LIST:
           return {
             ...state,
             threads: {
@@ -150,7 +154,7 @@ export default function(state = initialState, action) {
             }
           }
           
-        case (REPLIES_LIST):
+        case REPLIES_LIST:
           return {
             ...state,
             replies: {
@@ -165,7 +169,7 @@ export default function(state = initialState, action) {
         
     case SET_LIMIT:
       switch(action.listType) {
-        case (BOARDS_LIST): 
+        case BOARDS_LIST: 
           return {
             ...state,
             boards: {
@@ -175,7 +179,7 @@ export default function(state = initialState, action) {
             }
           }
 
-        case (THREADS_LIST):
+        case THREADS_LIST:
           return {
             ...state,
             threads: {
@@ -185,7 +189,7 @@ export default function(state = initialState, action) {
             }      
           }
 
-        case (REPLIES_LIST):
+        case REPLIES_LIST:
           return {
             ...state,
             replies: {
@@ -197,6 +201,21 @@ export default function(state = initialState, action) {
           
         default: 
           return state;
+      }
+
+    case SET_SEARCH:
+      return {
+        ...state,
+        boards: {
+          ...state.boards,
+          pathname: {
+            ...state.boards.pathname,
+            params: {
+              search: action.pathname.params.search
+            }
+          },
+          offset: 0,
+        }
       }
 
     default:

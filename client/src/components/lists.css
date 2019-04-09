@@ -21,10 +21,14 @@
 .tableHeader {
   font-size: 20px;
   font-weight: normal;
-  padding: 8px;
+  padding: 6px;
   background-color: gray;
   border-bottom: 3px solid var(--darkRed);
   border-top: 2px solid var(--darkRed);
+}
+
+.rowClick:hover {
+  background-color: var(--lightGray);
 }
 
 .listCell {
