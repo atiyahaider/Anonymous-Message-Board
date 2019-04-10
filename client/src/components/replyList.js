@@ -117,7 +117,7 @@ class ReplyList extends Component {
                     <table className="list">
                       <tbody>
                         { replies.map( reply => (
-                              <tr key={reply._id} replyid={reply._id}>
+                              <tr key={reply._id} replyid={reply._id} className="rowClick">
                                 <td className="listCell">
                                   <span style={{float: 'left', fontSize: '0.7em', color: 'gray'}}>{reply._id}</span>
                                   <span style={{float: 'right', fontSize: '0.7em', color: 'gray'}}>{(new Date(reply.bumped_on)).toLocaleString("en-US")}</span>

@@ -1,4 +1,4 @@
-import { SET_PATHNAME, SET_OFFSET, SET_TOTAL, SET_LIMIT } from './actionTypes';
+import { SET_PATHNAME, SET_OFFSET, SET_TOTAL, SET_LIMIT, SET_SEARCH} from './actionTypes';
 import { getBoards } from './boardActions';
 import { getThreadList } from './threadListActions';
 import { getReplyList } from './replyListActions';
@@ -58,6 +58,21 @@ export const setLimit = (listType, limit, pathname) => dispatch => {
   });
 
   loadPage(pathname, dispatch);
+};
+
+export const setSearch = (search) => (dispatch, getState) => {
+  let pathname = getState().pagination.boards.pathname;
+  if (pathname.params.search !== search) {
+    dispatch({
+      type: SET_SEARCH,
+      pathname: {
+        params: {
+          search: search
+        }
+      }
+    });
+    dispatch(getBoards(pathname));
+  }
 };
 
 //load the next page

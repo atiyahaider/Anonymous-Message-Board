@@ -13,21 +13,37 @@
 }
 
 #limitLabel {
-  color: var(--medRed);
+  color: var(--theme-medColor);
 }
 
-#limit {
+#limitSelect {
   width: 50px;
-  height: 18px;
-  padding: 2px;
+  height: 20px;
+  border: none;
+  border-bottom: 1px solid var(--theme-color);
+  background-color:  transparent;
+  outline: none;
+  color: white;
+  font-size: 0.85em;
+}
+
+#limitSelect:focus {
+  outline: none;
+}
+
+#limitSelect option {
+  appearance:none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+  background-color:  gray;
 }
 
 #pageNumber {
-  color: var(--medRed);
+  color: var(--theme-medColor);
 }
 
 .pageButton {
-  background-color: var(--gray);
+  background-color: var(--contrast-color);
   border: none;
   margin: 0 5px;
   padding: 5px;

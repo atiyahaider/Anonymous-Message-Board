@@ -38,12 +38,12 @@
 label {
   text-align: left;
   font-size: 0.95em;
-  color: var(--red);
+  color: var(--theme-color);
 }
 
 input {
   border: none;
-  border-bottom: 1px solid var(--red);
+  border-bottom: 1px solid var(--theme-color);
   height: 20px;
   font-size: 0.8em;
   padding-bottom: 3px;
@@ -51,11 +51,11 @@ input {
 
 input:focus {
     outline: none;
-    border-bottom: 1px solid var(--darkGray);
+    border-bottom: 1px solid var(--contrast-darkColor);
 }
 
 textarea {
-  border: 1px solid var(--red);
+  border: 1px solid var(--theme-color);
   height: 70px;
   font-size: 0.9em;
   font-family: 'Arial';
@@ -64,7 +64,7 @@ textarea {
 
 textarea:focus {
   outline: none;
-  border: 1px solid var(--darkGray);
+  border: 1px solid var(--contrast-darkColor);
 }
 
 #btnSection {

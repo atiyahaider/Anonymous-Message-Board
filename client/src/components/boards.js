@@ -8,6 +8,7 @@ import './lists.css';
 
 import Pagination from './pagination';
 import { BOARDS_LIST } from '../reducers/listTypes';
+import Search from './search';
 
 import { showModal } from '../actions/modalActions';
 import { ALERT_MODAL } from '../modals/modalTypes';
@@ -21,7 +22,7 @@ class Boards extends Component {
   }
   
   componentDidMount() {
-    this.props.getBoards(this.props.match)
+    this.props.getBoards(this.props.match);
   }
 
   componentDidUpdate() {
@@ -53,45 +54,49 @@ class Boards extends Component {
     if (err)            
       return null;
       
-    if (boards.length === 0) {
-      return (
-        <div>
-          <section id="content">
-            <p className="notExists">No boards exist yet. Please create a New Board.</p><br />
-            <button className="button" onClick={this.handleNewBoardClick}>New Board</button>
-          </section>
-        </div>
-      );
-    }
     else {
       return (
         <div>
-          <Pagination listName="Boards" listType={BOARDS_LIST}/>
-          <section id="content">
-            <div id="tableWrapper">
-              <table className="list">
-                <thead>
-                  <tr>
-                    <th className="tableHeader" style={{textAlign: 'left', width: '50%'}}>Boards</th>
-                    <th className="tableHeader">Threads</th>
-                    <th className="tableHeader">Replies</th>
-                    <th className="tableHeader" style={{textAlign: 'left'}}>Last Bumped</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  { boards.map( board => (
-                        <tr key={board._id} board={board._id} onClick={this.handleRowClick}>
-                          <td className="listCell" style={{width: '50%'}}>{board._id}</td>
-                          <td className="listCell" style={{textAlign: 'center'}}>{board.threads}</td>
-                          <td className="listCell" style={{textAlign: 'center'}}>{board.replies}</td>
-                          <td className="listCell">{(new Date(board.bumped_on)).toLocaleString("en-US")}</td>
-                        </tr>
-                        ))
-                  }
-                </tbody>
-              </table>
-            </div>
-            <button className="button" onClick={this.handleNewBoardClick}>New Board</button>
+          <section id="content">          
+            <Search />
+            
+            {  boards.length === 0 ? (
+                <div>
+                  <section id="content">
+                    <p className="notExists">No boards found.</p><br />
+                  </section>
+                </div>
+              ) :
+              (
+                <div>
+                  <Pagination listName="Boards" listType={BOARDS_LIST}/>
+                    <div id="tableWrapper">
+                      <table className="list">
+                        <thead>
+                          <tr>
+                            <th className="tableHeader" style={{textAlign: 'left', width: '50%'}}>Boards</th>
+                            <th className="tableHeader">Threads</th>
+                            <th className="tableHeader">Replies</th>
+                            <th className="tableHeader" style={{textAlign: 'left'}}>Last Bumped</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          { boards.map( board => (
+                                <tr className="rowClick" key={board._id} board={board._id} onClick={this.handleRowClick}>
+                                  <td className="listCell" style={{width: '50%'}}>{board._id}</td>
+                                  <td className="listCell" style={{textAlign: 'center'}}>{board.threads}</td>
+                                  <td className="listCell" style={{textAlign: 'center'}}>{board.replies}</td>
+                                  <td className="listCell">{(new Date(board.bumped_on)).toLocaleString("en-US")}</td>
+                                </tr>
+                                ))
+                          }
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
+          
+                <button className="button" onClick={this.handleNewBoardClick}>New Board</button>
           </section>
         </div>
       );

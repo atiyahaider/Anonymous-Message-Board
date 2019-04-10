@@ -1,0 +1,67 @@
+#searchDiv {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  color: var(--theme-medColor);
+}
+
+#searchForm input {
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid var(--theme-color);
+  height: 15px;
+  width: 60%;
+  font-size: 0.9em;
+  color: white;
+  padding-bottom: 3px;
+}
+
+#searchForm input:focus {
+  outline: none;
+  border-bottom: 1px solid white;
+  background-color: transparent;
+}
+
+/*to remove background color of autofill in Chrome */
+@-webkit-keyframes autofill {
+  to {
+    color: white;
+    background: transparent;
+  }
+}
+
+#searchForm input:-webkit-autofill {
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}
+
+#searchButton {
+  padding: 3px 10px;
+  margin-left: 8px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  box-shadow: 2px 2px 8px var(--contrast-darkColor);
+}
+
+#searchButton:hover{
+  color: white;
+  background-color: var(--theme-color);
+  box-shadow: 2px 2px 8px dimgray;
+}  
+
+.boardLink:link {
+  color: var(--theme-medColor);
+  font-size: 1.025em;
+}
+
+.boardLink:visited {
+  color: var(--theme-medColor);
+}
+
+.boardLink:hover {
+  color: white;
+}
+
+.boardLink:active {
+  color: black;
+}

@@ -12,7 +12,7 @@ export const setBoardsLoading = () => {
 export const getBoards = (pathname) => (dispatch, getState) => {
   
   dispatch(setBoardsLoading());
-
+  
   let pagination = getState().pagination.boards;
   if (pagination.pathname.path !== pathname.path) {
     dispatch(setPathname(BOARDS_LIST, pathname.path));
@@ -20,7 +20,7 @@ export const getBoards = (pathname) => (dispatch, getState) => {
   }
 
   //make async call
-  return fetch('/api/boards?offset=' + pagination.offset + '&limit=' + pagination.limit)
+  return fetch('/api/boards?offset=' + pagination.offset + '&limit=' + pagination.limit + '&search=' + pagination.pathname.params.search)
         .then(handleErrors,                          //http & validation errors
               error => {throw Error(error.error)}    //any other server error
              )

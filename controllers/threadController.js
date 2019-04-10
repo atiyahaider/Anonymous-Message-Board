@@ -9,30 +9,30 @@ module.exports = {
     getBoards: async (req, res, next) => {
         try {
          
-          //find the total number of distinct boards
-          let distinct = await Thread.distinct('board');
-          let total = distinct.length;
-
+      console.log(req.query)
           let offset = req.query.offset ? parseInt(req.query.offset) : 0;
           let limit = req.query.limit ? parseInt(req.query.limit) : defaultLimit;
+          let search  = ((req.query.search === undefined) || (req.query.search === '')) ? 
+                          {} : { board : {'$regex': new RegExp(req.query.search, "i")} }  
+
+          //find the total number of distinct boards
+          let distinct = await Thread.distinct('board', search);
+          let total = distinct.length;
 
           //get a page of boards
-          let data = await Thread.aggregate(
-                              [
-                                {
-                                  $group: {
+          let data = await Thread.aggregate()
+                              .match(search)
+                              .group({
                                     _id: "$board",
                                     threads: { $sum: 1 },
                                     replies: { $sum: { $size: "$replies" } },
                                     bumped_on: { $max: "$bumped_on" }
-                                  }
-                                }
-                              ]
-                             )
+                                    })
                              .collation({locale:'en', strength: 2}) //for proper alphabetical sorting
                              .sort('_id')
                              .skip(offset)
                              .limit(limit);         
+          
             res.status(200).json({total: total, data: data});
         } catch(err) {
             next(err);
