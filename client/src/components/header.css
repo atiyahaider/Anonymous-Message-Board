@@ -32,7 +32,7 @@
 }
 
 .navLink:hover {
-  color: var(--contrast-darkColor);
+  color: gray;
 }
 
 .navLink:active {

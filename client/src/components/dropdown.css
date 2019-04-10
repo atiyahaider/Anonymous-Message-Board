@@ -13,6 +13,7 @@
 
 .menu:hover {
   background-color: gray;
+  border-radius: 2px;
   cursor: pointer;
   text-decoration: none;
   color: black;
@@ -26,6 +27,7 @@ ul {
   list-style-type: none;
   width: 95%;
   background-color: gray;
+  border-radius: 2px;
   color: white;
   font-weight: normal;
   box-shadow: 2px 2px 5px black;
