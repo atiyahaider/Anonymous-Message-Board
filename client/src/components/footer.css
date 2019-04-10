@@ -24,3 +24,12 @@ a {
   color: white;
   decoration: none;
 }
+
+@media screen and (max-width: 767px) {
+  #footer {
+    height: 35px;
+  }
+  .footerContent {
+    padding-top: 8px;
+  }
+}

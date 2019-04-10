@@ -23,12 +23,12 @@ class Search extends Component {
 
   searchBoards(e) {
     e.preventDefault();
-    this.props.setSearch(this.state.search)
+    this.props.setSearch(this.state.search, this.props.pathname);
   }
 
   allBoards(e) {
     e.preventDefault();
-    this.props.setSearch('')
+    this.props.setSearch('', this.props.pathname);
   }
 
   render(){
@@ -55,7 +55,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setSearch: (search) => dispatch(setSearch(search))
+  setSearch: (search, pathname) => dispatch(setSearch(search, pathname))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

@@ -3,7 +3,7 @@
   margin-top: 5px;
   background: white;
   width: 50%;
-  padding: 20px 20px;
+  padding: 20px;
 }
 
 .subHeading {
@@ -13,7 +13,7 @@
 
 #apiLink {
   float: right;
-  font-size: 0.55em;
+  font-size: 0.55rem;
   font-weight: normal;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .fixedInfo {
-  font-size: 0.95em;
+  font-size: 0.95rem;
   font-weight: bold;
   color: black;
 }
@@ -37,7 +37,7 @@
 
 label {
   text-align: left;
-  font-size: 0.95em;
+  font-size: 0.95rem;
   color: var(--theme-color);
 }
 
@@ -45,7 +45,7 @@ input {
   border: none;
   border-bottom: 1px solid var(--theme-color);
   height: 20px;
-  font-size: 0.8em;
+  font-size: 0.8rem;
   padding-bottom: 3px;
 }
 
@@ -57,7 +57,7 @@ input:focus {
 textarea {
   border: 1px solid var(--theme-color);
   height: 70px;
-  font-size: 0.9em;
+  font-size: 0.9rem;
   font-family: 'Arial';
   padding: 3px;
 }
@@ -69,4 +69,26 @@ textarea:focus {
 
 #btnSection {
   text-align: center;  
+}
+
+@media screen and (max-width: 767px) {
+  #inputForm {
+    margin-top: 10px;
+    width: 70%;
+    padding: 10px;
+  }
+  
+  .fixed-field {
+    grid-template-rows: 16px auto;
+  }
+  
+  .input-field {
+    grid-template-rows: 16px auto;
+    margin-top: 10px;
+  }
+  
+  input {
+    height: 16px;
+    padding-bottom: 0px;
+  }
 }

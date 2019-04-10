@@ -25,7 +25,6 @@ class ThreadList extends Component {
   }
   
   componentDidMount() {
-    console.log(this.props)
     this.props.getThreadList(this.props.match)
   }
 

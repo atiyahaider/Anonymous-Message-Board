@@ -214,7 +214,7 @@ export default function(state = initialState, action) {
               search: action.pathname.params.search
             }
           },
-          offset: 0,
+          offset: action.offset,
         }
       }
 

@@ -49,3 +49,9 @@ li:last-child:hover {
 li:nth-child(2):hover {
   background-color: hsl(var(--green-hue), 100%, 20%);
 }
+
+@media screen and (max-width: 767px) {
+  ul {
+    bottom: 35px;
+  }
+}
