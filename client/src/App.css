@@ -1,11 +1,16 @@
 :root {
-  --gray: #585858;
-  --lightGray: #e6e6e6;
-  --darkGray: #484848;
-  --maroon: #190000;
-  --red: #990000;
-  --darkRed: #660000;
-  --medRed: #bb0000;
+  --red-hue: 0;
+  --blue-hue: 185;
+  --green-hue: 100;
+  --main-hue : var(--blue-hue);
+
+  --contrast-color: hsl(0, 0%, 40%);
+  --contrast-lightColor: hsl(0, 0%, 90%);
+  --contrast-darkColor:  hsl(0, 0%, 28%);
+  --theme-vdarkColor: hsl(var(--main-hue), 100%, 5%);
+  --theme-color: hsl(var(--main-hue), 100%, 30%);
+  --theme-darkColor: hsl(var(--main-hue), 100%, 20%);
+  --theme-medColor: hsl(var(--main-hue), 100%, 37%);
 }
 
 * {
@@ -16,7 +21,7 @@
 
 html {
   background-color: black;
-  background-image: linear-gradient(var(--gray), black);
+  background-image: linear-gradient(var(--contrast-color), black);
   background-attachment: fixed;
   height: 100%;  
 }
@@ -29,7 +34,6 @@ body {
 #container{
   min-height: 100%;
   padding-bottom: 30px;
-  /*position: relative;*/
 }
 
 /* side line 1*/
@@ -40,7 +44,7 @@ body {
   left: 10px;
   height: 85%;
   width: 0.27em;
-  background-image: linear-gradient(black 40%, var(--red));
+  background-image: linear-gradient(black 40%, var(--theme-color));
   transform-origin: top;
   transform: perspective(8px) rotateY(2deg);
 }
@@ -57,7 +61,7 @@ body {
   left: 25px;
   height: 80%;
   width: 0.27em;
-  background-image: linear-gradient(black 30%, var(--red));
+  background-image: linear-gradient(black 30%, var(--theme-color));
   transform-origin: top;
   transform: perspective(8px) rotateY(2deg);
 }
@@ -68,11 +72,11 @@ body {
   min-width: 100px;
   border: 1px solid gray;
   border-radius: 3px;
-  box-shadow: 2px 2px 8px var(--darkGray);
+  box-shadow: 2px 2px 8px var(--contrast-darkColor);
 }
 
 .button:hover{
   color: white;
-  background-color: var(--red);
+  background-color: var(--theme-color);
   box-shadow: 2px 2px 8px dimgray;
 }  

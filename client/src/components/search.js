@@ -38,7 +38,7 @@ class Search extends Component {
           <div id="searchDiv">
             <div style={{flexGrow: "7"}}>
               Search Boards: <input type="text" name="searchBoard" value={this.state.search} onChange={this.handleChange}/>&nbsp;&nbsp;
-              <button type="submit" id="searchButton" onClick={this.searchBoards}>Go</button>
+              <button type="submit" id="searchButton" onClick={this.searchBoards}><i className="fas fa-search"></i></button>
             </div>
             <div style={{flexGrow: "0"}}>
               <NavLink to="/" exact className="boardLink" onClick={this.allBoards}>All Boards</NavLink>

@@ -9,7 +9,7 @@
 
 .modal-box {
   position:fixed;
-  background: var(--red);
+  background: var(--theme-color);
   width: 40%;
   height: auto;
   top:50%;
@@ -18,7 +18,7 @@
 }
 
 #modalBoxHeader {
-  background:  var(--gray);
+  background:  var(--contrast-color);
   margin: 2px;
   text-align: left;
   padding: 8px 8px;
@@ -26,7 +26,7 @@
 }
 
 #modalBoxBody {
-  background: var(--darkRed);
+  background: var(--theme-darkColor);
   padding: 15px 10px;
   color: white;
   margin: 2px 2px;
@@ -36,7 +36,7 @@
 }
 
 #modalBoxFooter {
-  background: var(--gray);
+  background: var(--contrast-color);
   margin: 2px;
   text-align: right;
   padding: 6px 8px;
@@ -53,14 +53,14 @@
 
 .modalButton:hover{
   color: white;
-  background-color: var(--red);
+  background-color: var(--theme-color);
   box-shadow: 1px 1px 2px white;
 }  
 
 #deleteForm input {
-  background-color: var(--darkRed);
+  background-color: var(--theme-darkColor);
   border: none;
-  border-bottom: 1px solid var(--red);
+  border-bottom: 1px solid var(--theme-color);
   height: 20px;
   font-size: 0.9em;
   padding-bottom: 3px;

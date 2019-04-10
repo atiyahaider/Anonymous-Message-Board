@@ -52,7 +52,7 @@ class Pagination extends Component {
       <div id="pagination">
         <div className="pageDiv">
           <label id="limitLabel">{this.props.listName} per page: </label>
-           <select value={this.state.limit} onChange={this.handleChange}>
+           <select id="limitSelect" value={this.state.limit} onChange={this.handleChange}>
              {options}
            </select>
         </div>

@@ -23,17 +23,17 @@
   font-weight: normal;
   padding: 6px;
   background-color: gray;
-  border-bottom: 3px solid var(--darkRed);
-  border-top: 2px solid var(--darkRed);
+  border-bottom: 3px solid var(--theme-darkColor);
+  border-top: 2px solid var(--theme-darkColor);
 }
 
 .rowClick:hover {
-  background-color: var(--lightGray);
+  background-color: var(--contrast-lightColor);
 }
 
 .listCell {
-  border-bottom: 1px solid var(--red);
-  border-top: 1px solid var(--red);
+  border-bottom: 1px solid var(--theme-color);
+  border-top: 1px solid var(--theme-color);
   padding: 6px;
   font-size: 17px;
   text-align: left;
@@ -43,7 +43,7 @@
   margin: auto;
   width: 60%;
   text-align: left;
-  color: var(--medRed);
+  color: var(--theme-medColor);
   font-size: 1.025em;
   border: 2px solid white;
   padding: 8px;
@@ -64,7 +64,7 @@ hr {
 }
 
 .icon:hover {
-    color: var(--darkRed);
+    color: var(--theme-darkColor);
 }
 
 .reported {

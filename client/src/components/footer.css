@@ -2,10 +2,12 @@
   position: fixed;
   left: 0;
   bottom: 0;
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   height: 55px;
-  background-image: linear-gradient(var(--darkGray), var(--maroon));
-  transform: skewY(1.5deg);
+  background-image: linear-gradient(var(--contrast-darkColor), var(--theme-vdarkColor));
+  transform: skewY(1.25deg);
   transform-origin: bottom left;
 }
 
@@ -14,6 +16,11 @@
   padding-left: 7px;
   font-size: 0.9em;
   text-align: left;
-  transform: skewY(-1.5deg);
+  transform: skewY(-1.25deg);
   color: white;
+}
+
+a {
+  color: white;
+  decoration: none;
 }
