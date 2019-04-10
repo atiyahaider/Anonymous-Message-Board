@@ -9,7 +9,7 @@
 
 .notExists {
   color: white;
-  font-size: 20px;
+  font-size: 1.25rem;
   margin-top: 15px;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .tableHeader {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: normal;
   padding: 6px;
   background-color: gray;
@@ -31,11 +31,15 @@
   background-color: var(--contrast-lightColor);
 }
 
+.boardName {
+  width: 50%;
+}
+
 .listCell {
   border-bottom: 1px solid var(--theme-color);
   border-top: 1px solid var(--theme-color);
   padding: 6px;
-  font-size: 17px;
+  font-size: 1.0625rem;
   text-align: left;
 }
 
@@ -59,6 +63,11 @@ hr {
   border-top: 1px solid white;
 }
 
+#editButton {
+  text-align: right;
+  padding: 5px;
+}
+
 .icon {
   color: gray;
 }
@@ -69,4 +78,52 @@ hr {
 
 .reported {
   color: red;
+}
+
+#lastBumped {
+  float: right;
+}
+
+@media screen and (max-width: 767px) {
+  #tableWrapper {
+    width: 80%;
+    padding: 8px;
+  }
+  
+  .tableHeader {
+    padding: 3px;
+    font-size: 1.05rem;
+  }
+  
+  .threadHeader {
+    width: 80%;
+    margin-top: 5px;
+  }
+
+  .threadHeader p {
+    padding-bottom: 3px;
+  }
+
+  hr {
+    margin-bottom: 3px;
+  }
+
+  .boardName {
+    width: 40%;
+  }
+  
+  .listCell {
+    padding: 3px;
+    font-size: 1rem;
+  }
+  
+  #editButton {
+    padding: 3px;
+  }
+  
+  #lastBumped {
+    float: none;
+    display: block;
+    padding-top: 3px;
+  }
 }

@@ -60,19 +60,18 @@ export const setLimit = (listType, limit, pathname) => dispatch => {
   loadPage(pathname, dispatch);
 };
 
-export const setSearch = (search) => (dispatch, getState) => {
-  let pathname = getState().pagination.boards.pathname;
-  if (pathname.params.search !== search) {
-    dispatch({
-      type: SET_SEARCH,
-      pathname: {
-        params: {
-          search: search
-        }
+export const setSearch = (search, pathname) => (dispatch, getState) => {
+  dispatch({
+    type: SET_SEARCH,
+    pathname: {
+      params: {
+        search: search
       }
-    });
-    dispatch(getBoards(pathname));
-  }
+    },
+    offset: 0
+  });
+  
+  dispatch(getBoards(pathname));
 };
 
 //load the next page

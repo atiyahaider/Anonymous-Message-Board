@@ -85,16 +85,16 @@ class ReplyList extends Component {
         <div>
           <section id="content">
             <div className="threadHeader">
-              <p style={{fontSize: '1.2em'}}>Board: <span style={{color: 'white'}}>{thread.board}</span></p>      
+              <p style={{fontSize: '1.2rem'}}>Board: <span style={{color: 'white'}}>{thread.board}</span></p>      
               <hr />
               {!thread.reported && (
-                <div style={{textAlign: 'right', paddingBottom: '5px'}}>
+                <div id="editButton">
                   Edit &nbsp;<i className="fas fa-edit fa-lg icon" onClick={this.editThread} title="Edit Thread"></i>
                 </div>
                 )
               }
               <p>Thread Id: <span style={{color: 'gray'}}>{thread._id}</span> 
-                <span style={{float: 'right'}}>
+                <span id="lastBumped">
                   <span >Last Bumped:&nbsp;</span>
                   <span style={{color: 'gray'}}>{(new Date(thread.bumped_on)).toLocaleString("en-US")}</span>
                 </span>

@@ -24,6 +24,7 @@ html {
   background-image: linear-gradient(var(--contrast-color), black);
   background-attachment: fixed;
   height: 100%;  
+  font-size: 16px;   /* base font size */
 }
 
 body {
@@ -80,3 +81,17 @@ body {
   background-color: var(--theme-color);
   box-shadow: 2px 2px 8px dimgray;
 }  
+
+@media screen and (max-width: 767px) {
+  html {
+    /* reduce base font size to reduce all rem sizes */
+    font-size: 12px;
+  }
+  
+  .button {
+    padding: 5px;
+    margin: 10px 10px 5px;
+    min-width: 80px;
+    font-size: 0.9em
+  }
+}
