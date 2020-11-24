@@ -8,8 +8,6 @@ const defaultLimit = Number.parseInt(process.env.DEFAULT_LIMIT) || 10;
 module.exports = {
     getBoards: async (req, res, next) => {
         try {
-         
-      console.log(req.query)
           let offset = req.query.offset ? parseInt(req.query.offset) : 0;
           let limit = req.query.limit ? parseInt(req.query.limit) : defaultLimit;
           let search  = ((req.query.search === undefined) || (req.query.search === '')) ? 
