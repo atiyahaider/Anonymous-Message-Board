@@ -35,6 +35,8 @@ class Dropdown extends React.Component {
   }
   
   render() {
+    console.log('render')
+    console.log(this.state.displayMenu)
     return (
       <div id="dropdown">
         <div className="menu" onClick={this.showDropdownMenu}> Choose Color Theme 

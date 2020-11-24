@@ -5,6 +5,7 @@ const bodyParser  = require('body-parser');
 const expect      = require('chai').expect;
 const cors        = require('cors');
 const helmet      = require('helmet');
+const noCache     = require('nocache')
 
 const apiRoutes         = require('./routes/api.js');
 const fccTestingRoutes  = require('./routes/fcctesting.js');
@@ -12,7 +13,6 @@ const runner            = require('./test-runner');
 
 const app = express();
 app.use( helmet( {
-          noCache             : true,
           hidePoweredBy       : { setTo: 'PHP 4.2.0' },
           xssFilter           : true,
           frameguard          : { action: 'sameorigin' },
@@ -20,7 +20,7 @@ app.use( helmet( {
           referrerPolicy      : { policy: 'same-origin' }
         } ) 
        );
-
+app.use(noCache())
 app.use(cors({origin: '*'})); //For FCC testing purposes only
 
 app.use(bodyParser.json());
