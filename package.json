@@ -17,7 +17,7 @@
     "mocha": "^5.2.0",
     "zombie": "^6.1.4",
     "helmet": "^3.1.0",
-    "mongoose": "^5.10.15",
+    "mongoose": "^5.7.5",
     "react": "^16.8.3",
     "react-dom": "^16.6.3",
     "webpack": "^4.29.2",
